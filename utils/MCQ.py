@@ -1,6 +1,10 @@
 # code that generates questions from code goes here
 
-def MCQ(text):
-    questions = []
-    answer = ""
-    return questions, answer
+def generate_questions(
+    # text
+    ):
+    questions = [
+        ["mock question", "mock answer"],
+        ["second mock question", "second mock answer"]    
+    ]
+    return questions
