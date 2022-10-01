@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
-from summarizer import summarize
-from MCQ import MCQ
-from translater import translate
+from utils.summarizer import summarize
+from utils.MCQ import MCQ
+from utils.translater import translate
 
 app = Flask(__name__)
 record = False

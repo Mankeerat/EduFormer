@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="{{url_for('static', filename = 'styles.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/ico" href="/static/logo.ico"/>
     <title>EduFormer</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
                 Or work with a local file
             </div>
             <form action="/record" style="margin-bottom: 150px;">
-                <input type="file" style="font-size: 15px; margin-bottom: 20px; ">
+                <input type="file" accept="audio/*" style="font-size: 15px; margin-bottom: 20px; ">
                 <input type="submit" style="font-size: 15px;">
             </form>
             
