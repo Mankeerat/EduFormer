@@ -4,45 +4,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{{url_for('static', filename = 'styles.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>EduFormer</title>
 </head>
 <body>
-    <div class="container">
-        <button>
-            Live Translate
-        </button>
+    <div id="container" class="row">
+        <div class="col-lg-3 leftpanel">
+            <form method="POST" action="/record" style="margin-bottom:50px">
+                <button id="liveBtn" type="submit" style="height: 200px" class="fa fa-play">
+                    Live Translate
+                </button>
+            </form>
+            
+            <div style="border-top: solid whitesmoke; font-size: 10px; color: grey; margin-bottom: 30px;">
+                Or work with a local file
+            </div>
+            <form action="/record" style="margin-bottom: 150px;">
+                <input type="file" style="font-size: 15px; margin-bottom: 20px; ">
+                <input type="submit" style="font-size: 15px;">
+            </form>
+            
+            <form action="/analysis">
+                <button style="width:100px; font-size: 10px">
+                    Source & Frequency Analysis
+                </button>
+            </form>
+        </div>
+       
         
-        <button>
-            Upload a Recording
-        </button>
 
-
-        <button>
-            Convert to Text
-        </button>
-        <div>
-            <textarea>
-                
-            </textarea>
+        <div class="col-lg-6 midpanel" style="border-left: solid whitesmoke; border-right: solid whitesmoke">
+            <form action="/translate" style="margin-bottom: 50px;">
+                <button>
+                    Convert to Text
+                </button>
+            </form>
+            <div style="width: 100%; height: 100%; display: flex;">
+                <textarea style="width: 100%; height: 100%; display: flex;" readonly>
+                    
+                </textarea>
+            </div>
         </div>
 
-        <button>
-            Generate Summary
-        </button>
-        <div>
-            <textarea>
-                
-            </textarea>
-        </div>
+        <div class="col-lg-3 rightpanel">
+            <div style="margin-bottom: 50px">
+                <form action="/summarize" style="margin-bottom: 10px;">
+                    <button>
+                        Generate Summary
+                    </button>
+                </form>
+                <textarea style="width: 100%; height:200px" readonly>
+                    
+                </textarea>
+            </div>
 
-        <button>
-            Generate Questions
-        </button>
-        <div>
-            <textarea>
-                
-            </textarea>
+            <div>
+                <form action="/generateQuestions" style="margin-bottom: 10px;">
+                    <button>
+                        Generate Questions
+                    </button>
+                </form>
+
+                <textarea style="width: 100%; height:200px" readonly>
+                    
+                </textarea>
+            </div>
         </div>
     </div>
 </body>
+
+<script>
+    var playPause = document.getElementById('liveBtn');
+    playPause.onclick= function(){
+        playPause.classList.toggle('fa-play');
+        playPause.classList.toggle('fa-pause');
+        return false;
+    } 
+
+
+</script>
+
 </html>

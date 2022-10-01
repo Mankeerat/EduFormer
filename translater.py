@@ -1,5 +1,5 @@
 # code that translates audio -> text goes here
 
-def translator(audio):
+def translate(audio):
     text = ""
     return text

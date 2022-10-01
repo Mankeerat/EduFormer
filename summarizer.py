@@ -1,4 +1,4 @@
 # code that summarizes text goes here
 
-def summerizer(text):
+def summarize(text):
     return text
