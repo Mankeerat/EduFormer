@@ -12,7 +12,7 @@
 <body>
     <div id="container" class="row">
         <div class="col-lg-3 leftpanel">
-            <form method="POST" action="/record" style="margin-bottom:50px">
+            <form method="POST" action="/record" style="margin-bottom:100px">
                 <button id="liveBtn" type="submit" style="height: 200px" class="fa fa-play">
                     Live Translate
                 </button>
@@ -22,8 +22,8 @@
                 Or work with a local file
             </div>
             <form action="/record" style="margin-bottom: 150px;">
-                <input type="file" accept="audio/*" style="font-size: 15px; margin-bottom: 20px; ">
-                <input type="submit" style="font-size: 15px;">
+                <input type="file" accept="audio/*" style="font-size: 15px; margin-left: 20px; margin-bottom: 20px; ">
+                <!-- <input type="submit" style="font-size: 15px;"> -->
             </form>
             
             <form action="/analysis">
@@ -67,30 +67,35 @@
                     </button>
                 </form>
 
-                <textarea style="width: 100%; height:200px" readonly>
-                    {% for q in question %}
-                    <div>
-                       Questions: {{q}}
-                       {% for o in q.options %}
-                       <div> {{o}} </div>
-                        {% endfor %}
-                    </div>
+                <div style="width: 100%; height:200px">
+                    {% for q in questions %}
+                       {{ loop.index }}. {{ q[0] }}
+                       <div class="answers"> ________ </div>
+                       <div class="answers hidden"> {{ q[1] }} </div>
                     {% endfor %}
-                </textarea>
+                </div>
+                <button id="answerBtn">Show/ Hide Answers</button>
             </div>
         </div>
     </div>
 </body>
 
 <script>
-    var playPause = document.getElementById('liveBtn');
-    playPause.onclick= function(){
-        playPause.classList.toggle('fa-play');
-        playPause.classList.toggle('fa-pause');
+    var playPauseBtn = document.getElementById('liveBtn');
+    playPauseBtn.onclick= function(){
+        playPauseBtn.classList.toggle('fa-play');
+        playPauseBtn.classList.toggle('fa-pause');
+        alert("Beamformering not implemented yet, as 3+ microphones are required");
         return false;
     } 
 
-
+    var answerBtn = document.getElementById('answerBtn');
+    answerBtn.onclick = function(){
+        var answers = document.getElementsByClassName("answers");
+        Array.from(answers).forEach((ans) => {
+            ans.classList.toggle('hidden');
+        });
+        return false;
+    }
 </script>
-
 </html>

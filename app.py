@@ -6,10 +6,18 @@ from utils.translater import generate_transcript
 app = Flask(__name__)
 
 record = False
-text = ""
+transcript = ""
+questions = []
+summary = ""
 
 @app.route('/')
 def index():
+    global transcript
+    global questions
+    global summary
+    transcript = ""
+    questions = []
+    summary = ""
     return render_template('index.html')
 
 
@@ -31,27 +39,33 @@ def ananlyze():
 @app.route('/transcript', methods=['GET','POST'])
 def translate():
     # if request.method == "POST":
+    global transcript 
     transcript = generate_transcript(
         # audio
     )
-    return render_template('index.html', transcript=transcript)
+    return render()
 
 @app.route('/questions', methods=['GET','POST'])
 def generateQuestions():
     # if request.method == "POST":
+    global questions
     questions = generate_questions(
         # text
     )
-    return render_template('index.html', question=questions)
+    return render()
 
 
 @app.route('/summary', methods=['GET','POST'])
 def summarize():
     # if request.method == "POST":
+    global summary 
     summary = generate_summary(
         # text
     )
-    return render_template('index.html', summary = summary)
+    return render()
+
+def render():
+    return render_template('index.html', transcript=transcript, summary = summary, questions=questions)
 
 if __name__ == '__main__':
     app.debug = True

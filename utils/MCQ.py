@@ -3,8 +3,8 @@
 def generate_questions(
     # text
     ):
-    questions = [{
-        "question": ["optionA","optionB","optionC","optionD"],
-        "answer": 1
-    }]
+    questions = [
+        ["mock question", "mock answer"],
+        ["second mock question", "second mock answer"]    
+    ]
     return questions
