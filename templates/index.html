@@ -36,39 +36,46 @@
         
 
         <div class="col-lg-6 midpanel" style="border-left: solid whitesmoke; border-right: solid whitesmoke">
-            <form action="/translate" style="margin-bottom: 50px;">
+            <form action="/transcript" style="margin-bottom: 50px;">
                 <button>
                     Convert to Text
                 </button>
             </form>
             <div style="width: 100%; height: 100%; display: flex;">
                 <textarea style="width: 100%; height: 100%; display: flex;" readonly>
-                    
+                    {{transcript}}
                 </textarea>
             </div>
         </div>
 
         <div class="col-lg-3 rightpanel">
             <div style="margin-bottom: 50px">
-                <form action="/summarize" style="margin-bottom: 10px;">
+                <form action="/summary" style="margin-bottom: 10px;">
                     <button>
                         Generate Summary
                     </button>
                 </form>
                 <textarea style="width: 100%; height:200px" readonly>
-                    
+                    {{summary}}
                 </textarea>
             </div>
 
             <div>
-                <form action="/generateQuestions" style="margin-bottom: 10px;">
+                <form action="/questions" style="margin-bottom: 10px;">
                     <button>
                         Generate Questions
                     </button>
                 </form>
 
                 <textarea style="width: 100%; height:200px" readonly>
-                    
+                    {% for q in question %}
+                    <div>
+                       Questions: {{q}}
+                       {% for o in q.options %}
+                       <div> {{o}} </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
                 </textarea>
             </div>
         </div>

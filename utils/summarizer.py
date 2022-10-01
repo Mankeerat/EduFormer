@@ -1,4 +1,7 @@
 # code that summarizes text goes here
 
-def summarize(text):
-    return text
+def generate_summary(
+    # text
+):
+    summary = "demo summary"
+    return summary

@@ -1,5 +1,8 @@
 # code that translates audio -> text goes here
 
-def translate(audio):
-    text = ""
+def generate_transcript(
+    # audio
+):
+    # audio --model-> text 
+    text = "demo transcript"
     return text
