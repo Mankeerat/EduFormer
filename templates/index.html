@@ -9,25 +9,30 @@
     <link rel="icon" type="image/ico" href="/static/logo.ico"/>
     <title>EduFormer</title>
 </head>
-<body>
-    <div id="container" class="row">
+<body style = "background-color: #EBEAEF;">
+    <div id="container" class="row" style = "background-color: #EBEAEF;">
         <div class="col-lg-3 leftpanel">
             <form method="POST" action="/record" style="margin-bottom:50px">
-                <button id="liveBtn" type="submit" style="height: 200px" class="fa fa-play">
-                    Live Translate
-                </button>
+               
+                    <button id="liveBtn" type="submit" style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%);
+                        border-radius: 20px;" class="fa fa-play">
+                         Live Translate
+                    </button>
+                
             </form>
             
             <div style="border-top: solid whitesmoke; font-size: 10px; color: grey; margin-bottom: 30px;">
                 Or work with a local file
             </div>
-            <form action="/record" style="margin-bottom: 150px;">
-                <input type="file" accept="audio/*" style="font-size: 15px; margin-bottom: 20px; ">
-                <input type="submit" style="font-size: 15px;">
-            </form>
+            
+                <form action="/record" style="margin-bottom: 150px;">
+                    <input type="file" accept="audio/*" style="font-size: 15px; margin-bottom: 20px; ">
+                    <input type="submit" style="font-size: 15px;">
+                </form>
             
             <form action="/analysis">
-                <button style="width:100px; font-size: 10px">
+                <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%);
+                border-radius: 20px;">
                     Source & Frequency Analysis
                 </button>
             </form>
@@ -37,12 +42,12 @@
 
         <div class="col-lg-6 midpanel" style="border-left: solid whitesmoke; border-right: solid whitesmoke">
             <form action="/translate" style="margin-bottom: 50px;">
-                <button>
+                <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
                     Convert to Text
                 </button>
             </form>
             <div style="width: 100%; height: 100%; display: flex;">
-                <textarea style="width: 100%; height: 100%; display: flex;" readonly>
+                <textarea style="width: 100%; background: linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 50.83%);" readonly>
                     
                 </textarea>
             </div>
@@ -50,24 +55,24 @@
 
         <div class="col-lg-3 rightpanel">
             <div style="margin-bottom: 50px">
-                <form action="/summarize" style="margin-bottom: 10px;">
-                    <button>
+                <form action="/summarize" style="margin-bottom: 10px; ">
+                    <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
                         Generate Summary
                     </button>
                 </form>
-                <textarea style="width: 100%; height:200px" readonly>
+                <textarea style="width: 100%; height:200px;background: linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 100%);" readonly>
                     
                 </textarea>
             </div>
 
             <div>
                 <form action="/generateQuestions" style="margin-bottom: 10px;">
-                    <button>
+                    <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
                         Generate Questions
                     </button>
                 </form>
 
-                <textarea style="width: 100%; height:200px" readonly>
+                <textarea style="width: 100%; height:200px; background: linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 100%);" readonly>
                     
                 </textarea>
             </div>

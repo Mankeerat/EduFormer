@@ -6,6 +6,10 @@ from utils.translater import translate
 app = Flask(__name__)
 record = False
 
+@app.route('/home')
+def home():
+    return render_template("firstpage.html")
+
 @app.route('/')
 def index():
     return render_template('index.html')

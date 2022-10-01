@@ -36,3 +36,32 @@
     flex-direction:column;
     justify-content: space-around; */
 }
+
+smallButton{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 16px;
+gap: 10px;
+
+position: absolute;
+width: 296px;
+height: 64px;
+left: 21px;
+top: 354px;
+}
+
+largeButton{display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+    
+    position: absolute;
+    width: 526px;
+    height: 71px;
+    left: 330px;
+    top: 88px;
+}
