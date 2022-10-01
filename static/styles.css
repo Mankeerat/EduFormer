@@ -37,7 +37,6 @@
     justify-content: space-around; */
 }
 
-<<<<<<< HEAD
 smallButton{
     display: flex;
 flex-direction: row;
@@ -65,8 +64,8 @@ largeButton{display: flex;
     height: 71px;
     left: 330px;
     top: 88px;
-=======
+}
+
 .hidden {
     display: none;
->>>>>>> aab0f32d2cacb257a443bacb31e92a244a6c8160
 }
