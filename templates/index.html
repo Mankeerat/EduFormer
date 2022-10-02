@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-lg-6 midpanel" style="border-left: solid whitesmoke; border-right: solid whitesmoke">
-            <form action="/transcript" style="margin-bottom: 50px;">
+            <form action="/transcript" style="margin-bottom: 20px;">
                 <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
                     Convert to Text
                 </button>
@@ -50,35 +50,48 @@
 
         <div class="col-lg-3 rightpanel">
             <div style="margin-bottom: 50px">
-                <form action="/summary" style="margin-bottom: 10px; ">
-                    <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
-                        Generate Summary
+                <form action="/summary_questions" style="margin-bottom: 10px; ">
+                    <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px; font-size:15px">
+                        Generate Summary & Questions
                     </button>
                 </form>
-                <textarea style="width: 100%; height:200px;background: linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 100%);" readonly>{{summary}}
-                </textarea>
+                <div style="width: 100%; height:200px;background: 
+                    linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 100%); overflow-y:auto" readonly>
+                    {% if not summary %}
+                    Summary
+                    {% endif %}
+                    {{summary}}
+                </div>
             </div>
 
             <div>
-                <form action="/questions" style="margin-bottom: 10px;">
-                    <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
-                        Generate Questions
-                    </button>
-                </form>
-
-                <div style="width: 100%; height:200px; background: linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 100%)">
+                <div style="width: 100%; height:200px; background: 
+                    linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, 
+                #AFBDE0 100%); margin-bottom: 20px; overflow-y:auto">
+                    {% if not questions %}Questions{% endif %} 
                     {% for q in questions %}
-                       {{ loop.index }}. {{ q[0] }}
+                    {{ loop.index }}. {{ q[0] }}
                        <div class="answers"> ________ </div>
                        <div class="answers hidden"> {{ q[1] }} </div>
                     {% endfor %}
                 </div>
                 <button id="answerBtn">Show/ Hide Answers</button>
+                <div></div>
+                <form>
+                    {% if model=="Wordnet" %}
+                        <input type="radio" id="Wordnet" name="model" value="Wordnet"  checked > <label for="Wordnet">Wordnet</label>
+                        <input type="radio" id="Sense2Vec" name="model" value="Sense2Vec" > <label for="Wordnet">Sense2Vec</label>
+                    {% else %}
+                        <input type="radio" id="Wordnet" name="model" value="Wordnet"   > <label for="Wordnet">Wordnet</label>
+                        <input type="radio" id="Sense2Vec" name="model" value="Sense2Vec" checked> <label for="Wordnet">Sense2Vec</label>
+                    {% endif %}
+                    
+                </form>
             </div>
         </div>
     </div>
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
     var playPauseBtn = document.getElementById('liveBtn');
     playPauseBtn.onclick= function(){
@@ -95,6 +108,19 @@
             ans.classList.toggle('hidden');
         });
         return false;
+    }
+
+    var wordnetBtn = document.getElementById("Wordnet")
+    wordnetBtn.onclick = function(){
+        $.post( "/changeModel", {
+            model: "Wordnet"
+        });
+    }
+    var sense2vecBtn = document.getElementById("Sense2Vec")
+    sense2vecBtn.onclick = function(){
+        $.post( "/changeModel", {
+            model: "Sense2Vec",
+        });
     }
 </script>
 </html>
