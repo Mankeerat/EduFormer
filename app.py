@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request
-from utils.summarizer import generate_summary
-from utils.MCQ import generate_questions
 from utils.translater import generate_transcript
+from utils.generators import generate_summary_questions
 import speech_recognition as sr
-# from utils.model import summarizer
+
 
 app = Flask(__name__)
 
@@ -11,6 +10,7 @@ record = False
 transcript = ""
 questions = []
 summary = ""
+model = "Wordnet"
 
 @app.route('/home')
 def home():
@@ -43,20 +43,20 @@ def translate():
     )
     return render()
 
-@app.route('/summary')
-def summarize():
-    global summary 
-    summary = generate_summary(
-        rawdocs=transcript
+@app.route('/summary_questions')
+def generateQuestions():
+    global questions
+    global summary
+    questions, summary = generate_summary_questions(
+        context = transcript,
+        model = model
     )
     return render()
 
-@app.route('/questions')
-def generateQuestions():
-    global questions
-    questions = generate_questions(
-        context = transcript
-    )
+@app.route('/changeModel', methods = ['POST'])
+def changeModel():
+    global model
+    model = request.form['model']
     return render()
 
 def render():

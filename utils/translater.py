@@ -10,9 +10,8 @@ import speech_recognition as sr
 
 def generate_transcript():
     r = sr.Recognizer()
-    with sr.AudioFile('static/how2beatcancer.mp3' ) as source:
+    with sr.AudioFile('static/how2beatcancer.wav' ) as source:
+        print('Converting audio transcripts into text ...')
         audio_text = r.listen(source)
         text = r.recognize_google(audio_text)
-        print('Converting audio transcripts into text ...')
-        print(text)
         return text
