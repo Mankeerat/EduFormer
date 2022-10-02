@@ -78,8 +78,14 @@
                 <button id="answerBtn">Show/ Hide Answers</button>
                 <div></div>
                 <form>
-                    <input type="radio" id="Wordnet" name="model" value="Wordnet" checked> <label for="Wordnet">Wordnet</label>
-                    <input type="radio" id="Sense2Vec" name="model" value="Sense2Vec"> <label for="Wordnet">Sense2Vec</label>
+                    {% if model=="Wordnet" %}
+                        <input type="radio" id="Wordnet" name="model" value="Wordnet"  checked > <label for="Wordnet">Wordnet</label>
+                        <input type="radio" id="Sense2Vec" name="model" value="Sense2Vec" > <label for="Wordnet">Sense2Vec</label>
+                    {% else %}
+                        <input type="radio" id="Wordnet" name="model" value="Wordnet"   > <label for="Wordnet">Wordnet</label>
+                        <input type="radio" id="Sense2Vec" name="model" value="Sense2Vec" checked> <label for="Wordnet">Sense2Vec</label>
+                    {% endif %}
+                    
                 </form>
             </div>
         </div>

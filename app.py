@@ -49,7 +49,7 @@ def generateQuestions():
     global summary
     questions, summary = generate_summary_questions(
         context = transcript,
-        model = model
+        modelopt = model
     )
     return render()
 
