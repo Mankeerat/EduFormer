@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from utils.summarizer import generate_summary
 from utils.MCQ import generate_questions
 from utils.translater import generate_transcript
+import speech_recognition as sr
 # from utils.model import summarizer
 
 app = Flask(__name__)
@@ -42,24 +43,24 @@ def translate():
     )
     return render()
 
-@app.route('/questions')
-def generateQuestions():
-    global questions
-    questions = generate_questions(
-        # text
-    )
-    return render()
-
 @app.route('/summary')
 def summarize():
     global summary 
     summary = generate_summary(
-        text=transcript
+        rawdocs=transcript
+    )
+    return render()
+
+@app.route('/questions')
+def generateQuestions():
+    global questions
+    questions = generate_questions(
+        context = transcript
     )
     return render()
 
 def render():
-    return render_template('index.html', transcript=transcript, summary = summary, questions=questions)
+    return render_template('index.html', transcript=transcript, summary=summary, questions=questions)
 
 if __name__ == '__main__':
     app.debug = True

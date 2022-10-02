@@ -4,7 +4,7 @@ python3 app.py
 
 ## milestones
 ML: 
-I. Translate Audio to Text
+I. Translate Audio to Text ✅
 II. Summarize Text ✅
 III. Generate Questions from Text ✅
 IV. Text Similarity 
