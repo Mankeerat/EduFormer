@@ -2,6 +2,9 @@
 pip3 install -r requirements.txt
 python3 app.py
 
+please uncomment this line # nltk.download('stopwords') in MCQ.py
+delete /nltk_data/corpora/stopwords/hinglish if there's related error
+
 ## milestones
 ML: 
 I. Translate Audio to Text ✅
