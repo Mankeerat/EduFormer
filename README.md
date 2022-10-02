@@ -4,15 +4,21 @@ python3 app.py
 
 ## milestones
 ML: 
-I. translate audio to text
-II. summarize text ✅
-III. generate questions from text ✅
-IV. text similarity 
+I. Translate Audio to Text
+II. Summarize Text ✅
+III. Generate Questions from Text ✅
+IV. Text Similarity 
+V. Graphs
 
 SWE:
 I. Skeleton of website ✅
 II. Route functionalities correctly ✅
-III. beautify website ✅
+III. Beautify website ✅
 IV. Connect to models
+V. Upload Audio Files
+VI. Pdf API
+VII. Use Microphone to Record sound
 
 ## after adding requirements
+pip freeze > requirements.txt    
+pip3 freeze > requirements.txt    
