@@ -57,32 +57,22 @@ def summarize():
     )
     return render()
 
-<<<<<<< HEAD
 @app.route('/questions')
 def generateQuestions():
     global questions
     questions = generate_questions(
         context = transcript
-=======
+    )
+    return render()
 
 @app.route('/summary', methods=['GET','POST'])
 def summarize():
     # if request.method == "POST":
     global summary 
     summary = generate_summary(
-        text=mock_data
->>>>>>> parent of ca072d0 (complete transcript part)
+        rawdocs=transcript
     )
     return render()
-
-@app.route('/test')
-def test():
-    # summary = generate_summary(
-    #     text=mock_data
-    # )
-    # print(summary)
-    return render()
-
 
 def render():
     return render_template('index.html', transcript=transcript, summary=summary, questions=questions)

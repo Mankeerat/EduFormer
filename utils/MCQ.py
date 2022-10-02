@@ -254,7 +254,7 @@ def get_distractors_wordnet(word):
           if name is not None and name not in distractors:
               distractors.append(name)
     except:
-    #   print ("Wordnet distractors not found")
+      print ("Wordnet distractors not found")
     return distractors
 
 def get_distractors (word,origsentence,sense2vecmodel,sentencemodel,top_n,lambdaval):
