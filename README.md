@@ -25,11 +25,7 @@ NLP challenge
 
 ## after adding requirements
 pip freeze > requirements.txt    
-pip3 freeze > requirements.txt   
+pip3 freeze > requirements
 
-git filter-branch --force --index-filter \
-  'git rm --cached --ignore-unmatch s2v_old/vectors' \
-  --prune-empty --tag-name-filter cat -- --all
-
-f88321d
-  git rebase -i
+s2v_old/vectors is 583.62 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: File s2v_reddit_2015_md.tar.gz 
