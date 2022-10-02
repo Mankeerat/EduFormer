@@ -28,6 +28,7 @@ def postprocesstext (content):
   return final
 
 def generate_summary(text):
+    print('Summarizing texts ...')
     model = T5ForConditionalGeneration.from_pretrained('t5-base')
     tokenizer = T5Tokenizer.from_pretrained('t5-base')
 
