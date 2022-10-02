@@ -30,7 +30,7 @@ Beamformer and file upload are not completely integrated at current stage
 ## Screenshots
 ![Features](https://github.com/Mankeerat/EduFormer/blob/main/static/features.png?raw=true)
 ![Pipeline](https://github.com/Mankeerat/EduFormer/blob/main/static/pipeline.png?raw=true)
-![App](https://github.com/Mankeerat/EduFormer/blob/main/static/App_screenshot.png?raw=true)
+![App](https://github.com/Mankeerat/EduFormer/blob/main/static/App_screenshot.jpg?raw=true)
 
 ## VIDEO:
 https://youtu.be/nIUoRQCT6so
