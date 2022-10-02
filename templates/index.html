@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{{url_for('static', filename = 'styles.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/ico" href="/static/logo.ico"/>
+    <title>EduFormer</title>
+</head>
+<body style = "background-color: #EBEAEF;">
+    <div id="container" class="row" style = "background-color: #EBEAEF;">
+        <div class="col-lg-3 leftpanel">
+            <form method="POST" action="/record" style="margin-bottom:50px">
+                    <button id="liveBtn" type="submit" style="height: 200px; background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%);
+                        border-radius: 20px;" class="fa fa-play">
+                         Live Translate
+                    </button>
+                
+            </form>
+            
+            <div style="border-top: solid whitesmoke; font-size: 10px; color: grey; margin-bottom: 30px;">
+                Or work with a local file
+            </div>
+            
+            <form action="/record" style="margin-bottom: 150px;">
+                <input type="file" accept="audio/*" style="font-size: 15px; margin-left: 20px; margin-bottom: 20px; ">
+            </form>
+            
+            <form action="/analysis">
+                <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%);
+                border-radius: 20px; width: 100px; font-size: 20px;">
+                    Source & Frequency Analysis
+                </button>
+            </form>
+        </div>
+
+        <div class="col-lg-6 midpanel" style="border-left: solid whitesmoke; border-right: solid whitesmoke">
+            <form action="/transcript" style="margin-bottom: 50px;">
+                <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
+                    Convert to Text
+                </button>
+            </form>
+            <div style="width: 100%; height: 100%; display: flex;">
+                <textarea style="width: 100%; height: 100%; display: flex; background: linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 50.83%);" readonly>
+                    {{transcript}}
+                </textarea>
+            </div>
+        </div>
+
+        <div class="col-lg-3 rightpanel">
+            <div style="margin-bottom: 50px">
+                <form action="/summary" style="margin-bottom: 10px; ">
+                    <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
+                        Generate Summary
+                    </button>
+                </form>
+                <textarea style="width: 100%; height:200px;background: linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 100%);" readonly>
+                    {{summary}}
+                </textarea>
+            </div>
+
+            <div>
+                <form action="/questions" style="margin-bottom: 10px;">
+                    <button style="background: linear-gradient(180deg, #3D60A5 0%, #A695E7 100%); border-radius: 20px;">
+                        Generate Questions
+                    </button>
+                </form>
+
+                <div style="width: 100%; height:200px; background: linear-gradient(180deg, rgba(175, 189, 224, 0) 0%, #AFBDE0 100%)">
+                    {% for q in questions %}
+                       {{ loop.index }}. {{ q[0] }}
+                       <div class="answers"> ________ </div>
+                       <div class="answers hidden"> {{ q[1] }} </div>
+                    {% endfor %}
+                </div>
+                <button id="answerBtn">Show/ Hide Answers</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var playPauseBtn = document.getElementById('liveBtn');
+    playPauseBtn.onclick= function(){
+        playPauseBtn.classList.toggle('fa-play');
+        playPauseBtn.classList.toggle('fa-pause');
+        alert("Beamformering not implemented yet, as 3+ microphones are required");
+        return false;
+    } 
+
+    var answerBtn = document.getElementById('answerBtn');
+    answerBtn.onclick = function(){
+        var answers = document.getElementsByClassName("answers");
+        Array.from(answers).forEach((ans) => {
+            ans.classList.toggle('hidden');
+        });
+        return false;
+    }
+</script>
+</html>
