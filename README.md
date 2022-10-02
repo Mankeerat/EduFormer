@@ -8,7 +8,6 @@ I. Translate Audio to Text
 II. Summarize Text ✅
 III. Generate Questions from Text ✅
 IV. Text Similarity 
-V. Graphs
 
 SWE:
 I. Skeleton of website ✅
@@ -17,7 +16,6 @@ III. Beautify website ✅
 IV. Connect to models
 V. Upload Audio Files
 VI. Pdf API
-VII. Use Microphone to Record sound
 
 ## after adding requirements
 pip freeze > requirements.txt    

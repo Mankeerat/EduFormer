@@ -28,40 +28,30 @@ def index():
 @app.route('/record', methods=['GET','POST'])
 def record():
     record != record
-    # if (record==True){
-
-    # }else{
-
-    # }
     return render_template('index.html')
 
 @app.route('/analysis')
 def ananlyze():
-    # analysis = sommething
     return render_template('analysis.html')
 
-@app.route('/transcript', methods=['GET','POST'])
+@app.route('/transcript')
 def translate():
-    # if request.method == "POST":
     global transcript 
     transcript = generate_transcript(
         # audio
     )
     return render()
 
-@app.route('/questions', methods=['GET','POST'])
+@app.route('/questions')
 def generateQuestions():
-    # if request.method == "POST":
     global questions
     questions = generate_questions(
         # text
     )
     return render()
 
-
-@app.route('/summary', methods=['GET','POST'])
+@app.route('/summary')
 def summarize():
-    # if request.method == "POST":
     global summary 
     summary = generate_summary(
         text=transcript
