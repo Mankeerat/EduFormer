@@ -1,11 +1,11 @@
-## how to run the app
+## How to Run the App
 pip3 install -r requirements.txt
 python3 app.py
 
 please uncomment this line "# nltk.download('stopwords')" in MCQ.py before running
 Delete /nltk_data/corpora/stopwords/hinglish if there's related error
 
-## Projects
+## Project
 This project takes advantage of two major areas of computing, Audio Digital Signal Processing and Natural Language Processing techniques. 
 Firstly, we have a problem with all class recordings weather be it a lecture, a group discussion, need to pass around mics to every student etc. This can be eliminated by using an array of mics and beamforming. Beamforming is a digital signal processing technique in where we can capture sounds from specific ‘soiund zones’ and ignore it in others while recording on a an array of microphones. 
 In this project we used the Delay and Sum beamformer. Sound comes from a source, reaching the n number of microphones in the array at different times. Thus by eliminating this delay in our combined soundtrack, and summing it up, we receive the sound coming from that source in this flower lobe pattern with the main lobe focussing on the source of the sound and eliminating other sounds.
@@ -24,4 +24,11 @@ Then click on the "Convert the Text" to translate the audio file to texts, after
 Two models can be used for Question Generation -- Wordnet and Sense2Vec, generated questions would be hidden first and could be revealed using the "Show/Hide Answers" button.
 
 ## Important Note and Future work
-Beamformer and file upload are not completed integrated at current stage
+Beamformer and file upload are not completely integrated at current stage
+
+
+## Screenshots
+![alt text](?raw=true)
+
+## VIDEO:
+https://youtu.be/nIUoRQCT6so
